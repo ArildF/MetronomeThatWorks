@@ -1,4 +1,7 @@
 ﻿using System;
+using MetronomeThatWorks.ViewModels;
+using MetronomeThatWorks.Views;
+using ReactiveUI;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -31,6 +34,8 @@ namespace MetronomeThatWorks
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
+	        BootStrap();
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -61,9 +66,17 @@ namespace MetronomeThatWorks
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+
         }
 
-        /// <summary>
+	    private void BootStrap()
+	    {
+			RxApp.Initialize();
+			RxApp.MutableResolver.Register(() => new MainView(), typeof(IViewFor<MainViewModel>), "FullScreenLandscape");
+	    }
+
+	    /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved
         /// without knowing whether the application will be terminated or resumed with the contents
         /// of memory still intact.
