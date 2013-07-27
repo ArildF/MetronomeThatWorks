@@ -16,7 +16,9 @@ namespace MetronomeThatWorks.Views
 		public MainViewModel ViewModel
 		{
 			get { return (MainViewModel)GetValue(ViewModelProperty); }
-			set { SetValue(ViewModelProperty, value); }
+			set { SetValue(ViewModelProperty, value);
+				DataContext = value;
+			}
 		}
 		public static readonly DependencyProperty ViewModelProperty =
 			DependencyProperty.Register("ViewModel", typeof(MainViewModel), typeof(MainView), new PropertyMetadata(null));

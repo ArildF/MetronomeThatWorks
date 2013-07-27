@@ -7,9 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:routing="using:ReactiveUI.Routing"
     xmlns:xaml="using:ReactiveUI.Xaml"
     mc:Ignorable="d">
-
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <xaml:ViewModelViewHost x:Name="MainContent"></xaml:ViewModelViewHost>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <xaml:ViewModelViewHost x:Name="MainContent"
+                                HorizontalContentAlignment="Stretch"
+                                VerticalContentAlignment="Stretch"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></xaml:ViewModelViewHost>
 
     </Grid>
 </Page>
