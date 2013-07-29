@@ -5,16 +5,33 @@ namespace MetronomeThatWorks.ViewModels
 {
 	public class MainViewModel : ReactiveObject
 	{
+		private readonly IMetronome _metronome;
 		private int _beatsPerMinute;
 		private bool _showPlayButton;
 
-		public MainViewModel()
+		public MainViewModel(IMetronome metronome)
 		{
+			_metronome = metronome;
 			BeatsPerMinute = 120;
 			ShowPlayButton = true;
 
 			PlayCommand = new ReactiveCommand();
-			PlayCommand.Subscribe(_ => ShowPlayButton = !ShowPlayButton);
+			PlayCommand.Subscribe(_ => Play());
+			StopCommand = new ReactiveCommand();
+			StopCommand.Subscribe(_ => Stop());
+		}
+
+		private void Stop()
+		{
+			_metronome.Stop();
+			ShowPlayButton = true;
+		}
+
+		private void Play()
+		{
+			ShowPlayButton = false;
+			_metronome.BeatsPerMinute = BeatsPerMinute;
+			_metronome.Start();
 		}
 
 		public ReactiveCommand PlayCommand
@@ -22,6 +39,8 @@ namespace MetronomeThatWorks.ViewModels
 			get; 
 			private set; 
 		}
+
+		public ReactiveCommand StopCommand { get; private set; }
 
 		public int BeatsPerMinute
 		{

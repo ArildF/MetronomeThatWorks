@@ -1,4 +1,6 @@
-﻿using MetronomeThatWorks.ViewModels;
+﻿using MetronomeThatWorks.Domain;
+using MetronomeThatWorks.Infrastructure;
+using MetronomeThatWorks.ViewModels;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -23,7 +25,7 @@ namespace MetronomeThatWorks
         /// property is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-	        MainContent.ViewModel = new MainViewModel();
+	        MainContent.ViewModel = new MainViewModel(new Metronome(new SoundPlayer()));
         }
     }
 }

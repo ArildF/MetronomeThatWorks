@@ -194,13 +194,13 @@
                 Command="{Binding PlayCommand}"
                 Visibility="{Binding ShowPlayButton, Converter={StaticResource BoolToVisibilityConverter}}"/>
         <Button Style="{StaticResource PauseButtonStyle}" Grid.Row="1" 
-                Command="{Binding PlayCommand}"
+                Command="{Binding StopCommand}"
         	HorizontalAlignment="Center" VerticalAlignment="Center"
                 Visibility="{Binding ShowPauseButton, Converter={StaticResource BoolToVisibilityConverter}}"/>
         
-        <TextBox x:Name="BpmTextBox"
+        <TextBox 
             Text="{Binding BeatsPerMinute, Mode=TwoWay}" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45"></TextBox>
-        <Slider x:Name="BpmSlider" Value="{Binding BeatsPerMinute, Mode=TwoWay}"
+        <Slider Value="{Binding BeatsPerMinute, Mode=TwoWay}"
             Minimum="1" Maximum="350" Grid.Row="3" MinWidth="200" HorizontalAlignment="Center"></Slider>
 
     </Grid>
