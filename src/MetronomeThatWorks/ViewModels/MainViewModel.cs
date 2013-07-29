@@ -30,7 +30,6 @@ namespace MetronomeThatWorks.ViewModels
 		private void Play()
 		{
 			ShowPlayButton = false;
-			_metronome.BeatsPerMinute = BeatsPerMinute;
 			_metronome.Start();
 		}
 
@@ -45,7 +44,15 @@ namespace MetronomeThatWorks.ViewModels
 		public int BeatsPerMinute
 		{
 			get { return _beatsPerMinute; }
-			set { this.RaiseAndSetIfChanged(ref _beatsPerMinute, value); }
+			set
+			{
+				if (value != _beatsPerMinute)
+				{
+					_beatsPerMinute = value;
+					this.RaisePropertyChanged();
+					_metronome.BeatsPerMinute = value;
+				}
+			}
 		}
 
 		public bool ShowPlayButton
