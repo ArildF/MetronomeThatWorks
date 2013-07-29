@@ -74,6 +74,9 @@ namespace MetronomeThatWorks
 	    {
 			RxApp.Initialize();
 			RxApp.MutableResolver.Register(() => new MainView(), typeof(IViewFor<MainViewModel>), "FullScreenLandscape");
+			RxApp.MutableResolver.Register(() => new MainView(), typeof(IViewFor<MainViewModel>), "Filled");
+			RxApp.MutableResolver.Register(() => new MainView(), typeof(IViewFor<MainViewModel>), "Snapped");
+			RxApp.MutableResolver.Register(() => new MainView(), typeof(IViewFor<MainViewModel>), "FullScreenPortrait");
 	    }
 
 	    /// <summary>
