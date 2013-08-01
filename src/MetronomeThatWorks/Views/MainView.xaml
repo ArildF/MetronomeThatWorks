@@ -34,7 +34,7 @@
                                 <Grid Width="250" Height="250" HorizontalAlignment="Center">
                                     <TextBlock x:Name="BackgroundGlyph" HorizontalAlignment="Center" VerticalAlignment="Center" Text="&#xE0A8;" FontFamily="Segoe UI Symbol" Foreground="{StaticResource AppBarItemBackgroundThemeBrush}" FontSize="280" Margin="-254,-14,0,0"/>
                                     <TextBlock x:Name="OutlineGlyph" Text="&#xE0A7;" VerticalAlignment="Center" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Margin="-254,-14,0,0" FontSize="280" />
-                                    <ContentPresenter x:Name="Content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <ContentPresenter x:Name="Content" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-13,0,0,0"/>
                                 </Grid>
                                 <!--<TextBlock
                                 x:Name="TextLabel"
