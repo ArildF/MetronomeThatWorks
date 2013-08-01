@@ -15,25 +15,30 @@ namespace MetronomeThatWorks.ViewModels
 			BeatsPerMinute = 120;
 			ShowPlayButton = true;
 
-			PlayCommand = new ReactiveCommand();
-			PlayCommand.Subscribe(_ => Play());
-			StopCommand = new ReactiveCommand();
-			StopCommand.Subscribe(_ => Stop());
+			TogglePlayCommand = new ReactiveCommand();
+			TogglePlayCommand.Subscribe(_ => TogglePlay());
 		}
 
 		private void Stop()
 		{
-			_metronome.Stop();
-			ShowPlayButton = true;
+			
 		}
 
-		private void Play()
+		private void TogglePlay()
 		{
-			ShowPlayButton = false;
-			_metronome.Start();
+			if (_metronome.IsPlaying)
+			{
+				_metronome.Stop();
+				ShowPlayButton = true;
+			}
+			else
+			{
+				ShowPlayButton = false;
+				_metronome.Start();
+			}
 		}
 
-		public ReactiveCommand PlayCommand
+		public ReactiveCommand TogglePlayCommand
 		{
 			get; 
 			private set; 

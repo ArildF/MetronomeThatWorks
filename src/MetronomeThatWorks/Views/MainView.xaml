@@ -5,12 +5,16 @@
     xmlns:local="using:MetronomeThatWorks.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:infrastructure="using:MetronomeThatWorks.Infrastructure"
+    xmlns:infrastructure="using:MetronomeThatWorks.Infrastructure" xmlns:winRtBehaviors="using:WinRtBehaviors"
     mc:Ignorable="d"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Stretch"
     d:DesignHeight="471.333"
     d:DesignWidth="721.333">
+    
+    <winRtBehaviors:Interaction.Behaviors>
+        <infrastructure:GlobalKeyBindingBehavior Key="Space" Command="{Binding TogglePlayCommand}"/>
+    </winRtBehaviors:Interaction.Behaviors>
     
     <UserControl.Resources>
         
@@ -191,10 +195,10 @@
         
         <Button Style="{StaticResource PlayButtonStyle}" Grid.Row="1" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Command="{Binding PlayCommand}"
+                Command="{Binding TogglePlayCommand}"
                 Visibility="{Binding ShowPlayButton, Converter={StaticResource BoolToVisibilityConverter}}"/>
         <Button Style="{StaticResource PauseButtonStyle}" Grid.Row="1" 
-                Command="{Binding StopCommand}"
+                Command="{Binding TogglePlayCommand}"
         	HorizontalAlignment="Center" VerticalAlignment="Center"
                 Visibility="{Binding ShowPauseButton, Converter={StaticResource BoolToVisibilityConverter}}"/>
         

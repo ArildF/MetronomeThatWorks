@@ -23,7 +23,7 @@ namespace MetronomeThatWorks.Domain
 				if (_bpm != value)
 				{
 					_bpm = value;
-					if (Playing)
+					if (IsPlaying)
 					{
 						Start();
 					}
@@ -31,10 +31,11 @@ namespace MetronomeThatWorks.Domain
 			}
 		}
 
-		protected bool Playing
+		public bool IsPlaying
 		{
 			get { return _subscription != null; }
 		}
+
 
 		public void Start()
 		{
