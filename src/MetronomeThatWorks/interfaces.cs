@@ -2,7 +2,7 @@
 {
 	public interface ISoundPlayer
 	{
-		void Play();
+		void Play(bool tick);
 	}
 
 	public interface IMetronome

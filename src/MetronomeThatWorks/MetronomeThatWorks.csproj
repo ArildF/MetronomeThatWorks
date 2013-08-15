@@ -127,6 +127,8 @@
   <ItemGroup>
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\Sounds\Tick.mp3" />
+    <Content Include="Assets\Sounds\Tock.mp3" />
     <Content Include="Assets\Sounds\Tock.wav" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />

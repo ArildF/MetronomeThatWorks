@@ -40,8 +40,10 @@ namespace MetronomeThatWorks.Domain
 		public void Start()
 		{
 			Stop();
-			_subscription = Observable.Interval(TimeSpan.FromSeconds((double)60/BeatsPerMinute))
-			                          .ObserveOnDispatcher().Subscribe(_ => _player.Play());
+			_subscription = Observable.Generate(0, _ => true, it => it + 1, it => it,
+				it => TimeSpan.FromSeconds((double)60 / BeatsPerMinute)).Select(it => it % 4 == 0)
+				.ObserveOnDispatcher()
+				.Subscribe(_player.Play);
 		}
 
 		public void Stop()
